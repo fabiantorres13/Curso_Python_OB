@@ -8,11 +8,18 @@ calcular el tiempo que queda de trabajo.
 '''
 import datetime
 
-if datetime.datetime.now().hour > 19:
+salida = 10
+
+if datetime.datetime.now().hour >= salida:
     print("Es hora de ir a casa...")
 else:
-    salidaHora = 19 - datetime.datetime.now().hour
+    salidaHora = salida - datetime.datetime.now().hour
     salidaMinutos = 60 - datetime.datetime.now().minute
-    print("Aún Faltan", salidaHora,"horas y ",salidaMinutos, "minutos para ir a casa")
-    print("Sigue trabajando...")
+    if salidaHora == 1:
+        print("Aún Faltan",salidaMinutos, "minutos para ir a casa")
+        print("Sigue trabajando...")
+    else:
+        print("Aún Faltan", salidaHora - 1,"horas y ",salidaMinutos, "minutos para ir a casa")
+        print("Sigue trabajando...")
+
 
